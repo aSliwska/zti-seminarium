@@ -1,0 +1,48 @@
+.content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.columnContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: fit-content;
+}
+
+.load-text {
+    width: 100px;
+}
+
+.resizableBox {
+    /* background:rgb(109, 45, 83); */
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.absoluteLabel {
+    background: var(--text-color);
+    width: fit-content;
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: fixed;
+}
+
+.dashedDiv {
+    border: 1px dashed var(--primary-color);
+    background: rgba(18, 146, 91, 0.1);
+    padding: 1rem;
+}
+
+.memos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: fit-content;
+    align-items: center;
+    padding: 0.5rem;
+    height: 103px;
+}

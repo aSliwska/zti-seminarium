@@ -1,0 +1,4 @@
+.element {
+    border-bottom: 1px dashed var(--gray);
+    padding-bottom: 1.5rem;
+}
