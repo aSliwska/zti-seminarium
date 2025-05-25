@@ -1,3 +1,31 @@
-.page {
+.dashedDiv {
+    border: 1px dashed var(--primary-color);
+    background: rgba(18, 146, 91, 0.1);
+    padding: 1rem;
+    width: 30px;
+    max-width: 30px;
+    min-width: 30px;
+    height: 30px;
+}
 
+.content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.scrollList {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 85vw;
+    padding-bottom: 1rem;
+}
+
+.relativeLabel {
+    background: var(--text-color);
+    width: fit-content;
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    position: relative;
 }
