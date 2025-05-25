@@ -4,16 +4,17 @@ import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./examples.module.css";
 
 export default function ScrollList() {
-  const [values, setValues] = useState([1,2,3,4,5,6,7,8,9,10]);
+  const [values, setValues] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
   const [tooltipProps, setTooltipProps] = useState(null);
 
   return (
     <div>
       <div className={styles.content + " " + styles.scrollList}>
         {values.map((value, index) => 
-        <Box value={value} key={"box_" + index} setTooltipProps={setTooltipProps}/>)}
+          <Box value={value} key={"box_" + index} setTooltipProps={setTooltipProps}/>)
+        }
       </div>
-      {(tooltipProps !== null) && <Tooltip props={tooltipProps}/>}
+      <Tooltip props={tooltipProps}/>
     </div>
   );
 }
@@ -37,20 +38,25 @@ function Tooltip({ props }) {
   const [content, setContent] = useState(null);
 
   useLayoutEffect(() => {
-    if (props && tooltipRef) {
-      const { parent, content } = props;
-      const { left, top, height, width } = parent.current.getBoundingClientRect();
-      const { height: tooltipHeight, width: tooltipWidth } = tooltipRef.current.getBoundingClientRect();
- 
-      setTooltipLeft(left );
-      setContent(content);
+    if (tooltipRef) {
+      if (props) {
+        const { parent, content } = props;
+        const { left, width } = parent.current.getBoundingClientRect();
+  
+        setTooltipLeft(left + width/2 - 13);
+        setContent(content);
+      }
+      else {
+        setTooltipLeft(-999);
+        setContent(null);
+      }
     }
   }, [props, tooltipRef]);
 
   return (
     <div 
       className={styles.relativeLabel}
-      style={{ top: -26, left: tooltipLeft}}
+      style={{ left: tooltipLeft, top: 190}}
       ref={tooltipRef}
     >
       {content}

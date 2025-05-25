@@ -15,9 +15,12 @@
 }
 
 .scrollList {
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
-    width: 85vw;
+    display: flex;
+    flex-direction: row;
+    max-width: 85vw;
+    gap: 1rem;
     padding-bottom: 1rem;
 }
 
@@ -27,5 +30,30 @@
     color: white;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    position: relative;
+    position: absolute;
+}
+
+.centered {
+    justify-content: center;
+}
+
+.columnContent {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tooltip {
+    background: var(--text-color);
+    width: 150px;
+    height: 150px;
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
 }
