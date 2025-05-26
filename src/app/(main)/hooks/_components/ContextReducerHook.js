@@ -3,11 +3,18 @@
 import { createContext, useContext, useReducer } from "react";
 import styles from "./hooks.module.css";
 
+const StarContext = createContext(0);
+const StarDispatchContext = createContext(null);
+
 export default function ContextReducerHook() {
+  const [stars, dispatch] = useReducer(starsReducer, { number: 0 });
+
   return (
-    <StarsProvider>
-      <Component1/>
-    </StarsProvider>
+    <StarContext.Provider value={stars}>
+      <StarDispatchContext.Provider value={dispatch}>
+        <Component1/>
+      </StarDispatchContext.Provider>
+    </StarContext.Provider>
   );
 }
 
@@ -51,21 +58,6 @@ function Component4() {
   );
 }
 ///////////////////////////////////////////////////
-
-const StarContext = createContext(0);
-const StarDispatchContext = createContext(null);
-
-function StarsProvider({ children }) {
-  const [stars, dispatch] = useReducer(starsReducer, { number: 0 });
-
-  return (
-    <StarContext.Provider value={stars}>
-      <StarDispatchContext.Provider value={dispatch}>
-        {children}
-      </StarDispatchContext.Provider>
-    </StarContext.Provider>
-  );
-}
 
 function starsReducer(stars, action) {
   switch (action.type) {

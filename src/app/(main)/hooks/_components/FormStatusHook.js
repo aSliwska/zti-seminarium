@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useFormStatus } from 'react-dom';
 import styles from "./hooks.module.css";
+import FormSubmit from './FormSubmit';
+import { useState } from "react";
+
 
 export default function FormStatusHook() {
   const [submittedData, setSubmittedData] = useState(null);
@@ -13,8 +14,6 @@ export default function FormStatusHook() {
     const data = Object.fromEntries(formData);
     setSubmittedData(data);
   };
-
-  const { pending } = useFormStatus();
 
   return (
     <form 
@@ -32,17 +31,7 @@ export default function FormStatusHook() {
         <input name="agreement" type="checkbox"/>
       </div>
 
-      <div className={styles.content}>
-        <button type="submit" disabled={pending}>
-          {pending ? 'Submitting...' : 'Yield'}
-        </button>
-        {submittedData && (
-          <span>Soul sold!</span>
-        )}
-      </div>
-      {submittedData && (
-          <pre>{JSON.stringify(submittedData, null, 2)}</pre>
-      )}
+      <FormSubmit submittedData={submittedData}/>
     </form>
   );
 }
