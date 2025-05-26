@@ -5,6 +5,7 @@ import styles from "./hooks.module.css";
 
 export default function StateHook() {
   const [count, setCount] = useState(0);
+
   return (
     <div className={styles.content}>
       <button onClick={() => setCount(count + 1)}>

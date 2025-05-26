@@ -10,6 +10,7 @@ export default function CallbackHook() {
   const sayHi = useCallback(() => {
     setMessage("Hello, " + name + ".");
   }, [name]);
+  
   return (
     <div className={styles.columnContent}>
       <input name="name" type="text" placeholder="Name" onChange={(event) => setName(event.target.value)}/>

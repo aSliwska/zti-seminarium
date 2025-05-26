@@ -14,7 +14,7 @@ export default function HooksPage() {
         <StateHook/>
       </ListElement>
       <ListElement title="useContext + useReducer" children={<ContextReducerHook/>}/>
-      <ListElement title="useFormStatus" children={<FormStatusHook/>}/>
+      {/* <ListElement title="useFormStatus" children={<FormStatusHook/>}/> */}
       <ListElement title="useEffect" children={<EffectHook/>}/>
       <ListElement title="useLayoutEffect + useRef" children={<RefLayoutEffectHook/>}/>
       <ListElement title="useCallback" children={<CallbackHook/>}/>
