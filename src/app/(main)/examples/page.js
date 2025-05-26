@@ -6,7 +6,7 @@ export default function ExamplesPage() {
   return (
     <>
       <ListElement title="Scrollable list with popups" children={<ScrollList/>}/>
-      <ListElement title="Own hook - useClickOutside" children={<ClickOutside/>}/>
+      <ListElement title="Own hook - useComponentVisible" children={<ClickOutside/>}/>
       <footer style={{height: 500}}/>
     </>
   );
